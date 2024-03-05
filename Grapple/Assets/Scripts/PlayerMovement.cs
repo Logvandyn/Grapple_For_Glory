@@ -12,9 +12,17 @@ public class PlayerMovement : MonoBehaviour
     public Transform playerOrientation;
     Vector3 moveDirection;
     Rigidbody rb;
+
     //keyboard
     float horizInput;
     float vertInput;
+
+    //drag to stop slipping- TAKE THIS OUT IF WE WANT SLIPPERY MOVEMENT
+    //make sure we're on the ground to only apply drag when grounded
+    public float groundDrag;
+    public float playerHeight;
+    public LayerMask whatIsGround; //get what is set as the ground
+    bool grounded;
 
 
     // Start is called before the first frame update
@@ -27,7 +35,17 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        //drag stuff- I CAST RAYCAST
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
+        
         MyInput();
+
+        //apply drag
+        if (grounded)
+            rb.drag = groundDrag;
+        else
+            rb.drag = 0;
     }
 
     private void FixedUpdate() //fixed for physics
