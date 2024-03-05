@@ -40,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
         
         MyInput();
+        SpeedControl();
 
         //apply drag
         if (grounded)
@@ -66,5 +67,16 @@ public class PlayerMovement : MonoBehaviour
         moveDirection = playerOrientation.forward * vertInput + playerOrientation.right * horizInput; //walk in the direction you look
         //add force
         rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+    }
+
+    private void SpeedControl() //stop the player from getting too fast- remove this if we want to be able to gain speed as we move?
+    {
+        Vector3 flatVelocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+        //limit velocity if needed
+        if(flatVelocity.magnitude > moveSpeed)
+        {
+            Vector3 limitedVel = flatVelocity.normalized * moveSpeed;
+            rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z); //apply max velocity
+        }
     }
 }
