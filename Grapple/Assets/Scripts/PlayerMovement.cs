@@ -24,6 +24,14 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask whatIsGround; //get what is set as the ground
     bool grounded;
 
+    //jumping
+    public float jumpForce;
+    public float jumpCooldown;
+    public float airMultiplier;
+    bool readyToJump = true; //setting it to true fixes the issue of, well, not working
+
+    public KeyCode jumpKey = KeyCode.Space;
+
 
     // Start is called before the first frame update
     void Start()
@@ -59,14 +67,24 @@ public class PlayerMovement : MonoBehaviour
     {
         horizInput = Input.GetAxisRaw("Horizontal");
         vertInput = Input.GetAxisRaw("Vertical");
+
+        if(Input.GetKey(jumpKey) && readyToJump && grounded) //if space, ready, and on ground
+        {
+            readyToJump = false;
+            Jump();
+            Invoke(nameof(ResetJump), jumpCooldown);
+        }
     }
 
     private void MovePlayer()
     {
         //movement direction
         moveDirection = playerOrientation.forward * vertInput + playerOrientation.right * horizInput; //walk in the direction you look
-        //add force
-        rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+        //add force only when grounded
+        if(grounded)
+            rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+        else if(!grounded)
+            rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
     }
 
     private void SpeedControl() //stop the player from getting too fast- remove this if we want to be able to gain speed as we move?
@@ -78,5 +96,16 @@ public class PlayerMovement : MonoBehaviour
             Vector3 limitedVel = flatVelocity.normalized * moveSpeed;
             rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z); //apply max velocity
         }
+    }
+
+    private void Jump()
+    {
+        //reset y velocity
+        rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+        rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+    }
+    private void ResetJump()
+    {
+        readyToJump = true;
     }
 }
