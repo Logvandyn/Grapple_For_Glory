@@ -1435,6 +1435,9 @@ MonoBehaviour:
   jumpCooldown: 0.25
   airMultiplier: 0.4
   jumpKey: 32
+  freeze: 0
+  activeGrapple: 0
+  enableMoveOnNextTouch: 0
 --- !u!1 &1835706721673228532
 GameObject:
   m_ObjectHideFlags: 0
@@ -1690,10 +1693,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 192
   lr: {fileID: 157399346}
+  camscript: {fileID: 413196611}
   maxGrappleDist: 25
   grappleDelay: 0.25
   cooldown: 1
-  cooldownTimer: 0
+  overshootY: 2
+  grappleFOV: 100
   grappleKey: 324
 --- !u!33 &7674578867076314489
 MeshFilter:

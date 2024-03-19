@@ -38,4 +38,9 @@ public class CameraController : MonoBehaviour
         transform.rotation = Quaternion.Euler(camXrot, camYrot, 0); //camera
         playerOrientation.rotation = Quaternion.Euler(0, camYrot, 0); //only rotate player side to side
     }
+
+    public void DoFov(float endValue) //change FOV for grapple, speed boost, wall run, etc
+    {
+        GetComponent<Camera>().fieldOfView = endValue;
+    }
 }
