@@ -31,6 +31,12 @@ public class PlayerMovement : MonoBehaviour
 
     public KeyCode jumpKey = KeyCode.Space;
 
+    //freezing during grapple shoot- TAKE THIS AWAY IF YOU WANT TO MOVE WHILE THE GUN SHOOTS
+    public bool freeze;
+
+    public bool activeGrapple;
+    private Vector3 velToSet;
+    public bool enableMoveOnNextTouch; //move once you land
 
     // Start is called before the first frame update
     void Start()
@@ -50,10 +56,16 @@ public class PlayerMovement : MonoBehaviour
         SpeedControl();
 
         //apply drag
-        if (grounded)
+        if (grounded && !activeGrapple)
             rb.drag = groundDrag;
         else
             rb.drag = 0;
+
+        //remove this to move during shoot
+        if (freeze)
+        {
+            rb.velocity = Vector3.zero;
+        }
     }
 
     private void FixedUpdate() //fixed for physics
@@ -75,8 +87,27 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void ResetRestriction() //let you move again
+    {
+        activeGrapple = false;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (enableMoveOnNextTouch)
+        {
+            enableMoveOnNextTouch = false;
+            ResetRestriction();
+
+            GetComponent<Grapple>().EndGrapple(); //make sure it's public you doofus
+        }
+    }
+
     private void MovePlayer()
     {
+        //deactivate while grappling
+        if (activeGrapple) return;
+
         //movement direction
         moveDirection = playerOrientation.forward * vertInput + playerOrientation.right * horizInput; //walk in the direction you look
         //add force only when grounded
@@ -88,6 +119,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void SpeedControl() //stop the player from getting too fast- remove this if we want to be able to gain speed as we move?
     {
+        //deactivate while grappling
+        if (activeGrapple) return;
+
         Vector3 flatVelocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
         //limit velocity if needed
         if(flatVelocity.magnitude > moveSpeed)
@@ -106,5 +140,36 @@ public class PlayerMovement : MonoBehaviour
     private void ResetJump()
     {
         readyToJump = true;
+    }
+
+    //grapple stuff
+    public Vector3 CalcJumpVelocity(Vector3 startPoint, Vector3 endPoint, float trajectoryHeight)
+    {
+        float gravity = Physics.gravity.y;
+        float displacementY = endPoint.y - startPoint.y;
+        Vector3 displacementXZ = new Vector3(endPoint.x - startPoint.x, 0f, endPoint.z - startPoint.z);
+
+        Vector3 velocityY = Vector3.up * Mathf.Sqrt(-2 * gravity * trajectoryHeight);
+        Vector3 velocityXZ = displacementXZ / (Mathf.Sqrt(-2 * trajectoryHeight / gravity) + Mathf.Sqrt(2 * (displacementY - trajectoryHeight) / gravity));
+
+        return velocityXZ + velocityY;
+    }
+
+    public void jumpToPos(Vector3 targetPos, float trajectoryHeight)
+    {
+        activeGrapple = true;
+        velToSet = CalcJumpVelocity(transform.position, targetPos, trajectoryHeight);
+        //rb.velocity = CalcJumpVelocity(transform.position, targetPos, trajectoryHeight);
+        //delay
+        Invoke(nameof(SetVel), 0.1f); //apply velocity after 0.1 seconds
+
+        //stop grappling after X time in case you get stuck like Ryan in Substance Painter
+        Invoke(nameof(ResetRestriction), 3f); //change this number if needed
+    }
+
+    private void SetVel() //apply force 
+    {
+        enableMoveOnNextTouch = true;
+        rb.velocity = velToSet;
     }
 }
