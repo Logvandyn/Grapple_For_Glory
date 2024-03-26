@@ -7,7 +7,6 @@ using UnityEngine;
 /// </summary>
 public class PlayerMovement : MonoBehaviour
 {
-
     public float moveSpeed;
     public Transform playerOrientation;
     Vector3 moveDirection;
