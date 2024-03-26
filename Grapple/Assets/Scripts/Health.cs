@@ -9,10 +9,12 @@ public class Health : MonoBehaviour
     public int maxhealth = 3;
     public int currenthealth;
     public int amount;
+    public TextMeshProUGUI healthcounter;
     // Start is called before the first frame update
     void Start()
     {
         currenthealth = maxhealth;
+        SetCountText();
     }
 
     public void TakeDamage(int amount)
@@ -38,6 +40,12 @@ public class Health : MonoBehaviour
         // Update is called once per frame
         void Update()
     {
-           
+        SetCountText();
+    }
+
+    public void SetCountText()
+    {
+        //counts the Health you have left
+        healthcounter.text = "Health " + currenthealth.ToString();
     }
 }
