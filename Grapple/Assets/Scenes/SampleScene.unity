@@ -1696,7 +1696,7 @@ MonoBehaviour:
   camscript: {fileID: 413196611}
   maxGrappleDist: 25
   grappleDelay: 0.25
-  cooldown: 1
+  cooldown: 0.5
   overshootY: 2
   grappleFOV: 100
   grappleKey: 324
