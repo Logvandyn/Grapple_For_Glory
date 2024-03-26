@@ -14,8 +14,16 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
+        currenthealth -= amount;
 
+        if (currenthealth <= 0)
+        {
+            //Dead
+
+        }
     }
+
+    private void On
 
     // Update is called once per frame
     void Update()
