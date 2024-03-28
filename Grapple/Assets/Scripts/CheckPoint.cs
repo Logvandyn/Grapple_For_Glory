@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CheckPoint : MonoBehaviour
 {
@@ -19,6 +20,10 @@ public class CheckPoint : MonoBehaviour
             transform.position = startPosition;
             Blink();
             GetComponent<Transform>().position = startPosition;
+        }
+        if (other.tag == "Exit")
+        {
+            SceneSwitch.instance.switchScene(1);
         }
     }
     //cause the player to blink
