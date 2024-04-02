@@ -121,15 +121,14 @@ public class GrappleSwing : MonoBehaviour
             joint.minDistance = distanceFromPoint * 0.25f;
         }
         //extend
-        /*
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.LeftShift))
         {
             float extendDistancePoint = Vector3.Distance(transform.position, swingPoint) + CableSpeed;
 
             joint.maxDistance = extendDistancePoint * 0.8f;
             joint.minDistance = extendDistancePoint * 0.25f;
         }
-        */
+        
         
     }
 }
