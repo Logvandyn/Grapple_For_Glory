@@ -11,7 +11,7 @@ public class Health : MonoBehaviour
     public int maxlives = 3;
     public int currentlives;
     public int amount;
-    private Vector3 startPosition; //for spawning / respawning
+    public Vector3 startPosition; //for spawning / respawning
     public TextMeshProUGUI healthcounter;
     public TextMeshProUGUI livescounter;
     // Start is called before the first frame update
