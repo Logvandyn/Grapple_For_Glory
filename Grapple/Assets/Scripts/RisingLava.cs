@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class RisingLava : MonoBehaviour
 {
+    Transform a;
+    Transform b;
+
+
     // Start is called before the first frame update
     void Start()
     {
