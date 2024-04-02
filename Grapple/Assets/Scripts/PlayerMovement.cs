@@ -110,6 +110,11 @@ public class PlayerMovement : MonoBehaviour
 
             GetComponent<Grapple>().EndGrapple(); //make sure it's public you doofus
         }
+        if (collision.gameObject.tag == "Hazard")
+        {
+            GetComponent<GrappleSwing>().lr.enabled = false;
+            GetComponent<GrappleSwing>().StopSwing();
+        }
     }
 
     private void MovePlayer()

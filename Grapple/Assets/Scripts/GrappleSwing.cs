@@ -14,11 +14,14 @@ public class GrappleSwing : MonoBehaviour
     public Transform player;
     public LayerMask canGrapple;
     public PlayerMovement pmove;
+    public CameraController camscript;
+
 
     [Header("Swinging")]
     private float maxSwingDistance = 25;
     private Vector3 swingPoint;
     private SpringJoint joint;
+    public float grappleFOV;
 
     private Vector3 currentGrapplePosition;
 
@@ -60,6 +63,9 @@ public class GrappleSwing : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(cam.position, cam.forward, out hit, maxSwingDistance, canGrapple))
         {
+            //FOV
+            camscript.DoFov(grappleFOV);
+
             swingPoint = hit.point;
             joint = player.gameObject.AddComponent<SpringJoint>();
             joint.autoConfigureConnectedAnchor = false;
@@ -88,6 +94,8 @@ public class GrappleSwing : MonoBehaviour
         lr.positionCount = 0;
         Destroy(joint);
         lr.enabled = false;
+        //reset FOV
+        camscript.DoFov(90f);
     }
 
     void DrawRope()
