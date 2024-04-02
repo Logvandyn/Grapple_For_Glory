@@ -50,17 +50,20 @@ public class Grapple : MonoBehaviour
         //update line position
         if (grappling)
         {
-            lr.SetPosition(0, gunTip.position);
+            lr.SetPosition(0, gunTip.position); //0
         }
     }
 
     private void StartGrapple() //shoot
     {
         if (cooldownTimer > 0) return; //if cooldown is active dont grapple
+        //deactivate swing
+        GetComponent<GrappleSwing>().StopSwing();
+
         grappling = true;
 
         //remove this to move during shoot
-        movement.freeze = true;
+        //movement.freeze = true;
 
         //raycast to shoot
         RaycastHit hit;
@@ -82,7 +85,7 @@ public class Grapple : MonoBehaviour
     private void ExecuteGrapple() //pull
     {
         //remove this to move during shoot
-        movement.freeze = false;
+        //movement.freeze = false;
 
         //FOV
         camscript.DoFov(grappleFOV);
@@ -104,7 +107,7 @@ public class Grapple : MonoBehaviour
         //reset FOV
         camscript.DoFov(90f);
         //remove this to move during shoot
-        movement.freeze = false;
+        //movement.freeze = false;
 
         grappling = false;
         cooldownTimer = cooldown;
