@@ -1260,7 +1260,7 @@ Transform:
   m_GameObject: {fileID: 1909491288}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.21, y: 6.64, z: -17.39}
+  m_LocalPosition: {x: -4.21, y: 12.5, z: -17.39}
   m_LocalScale: {x: 3.463787, y: 1.1884977, z: 1.6544064}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1438,6 +1438,8 @@ MonoBehaviour:
   freeze: 0
   activeGrapple: 0
   enableMoveOnNextTouch: 0
+  swingSpeed: 10
+  swinging: 0
 --- !u!1 &1835706721673228532
 GameObject:
   m_ObjectHideFlags: 0
@@ -1529,6 +1531,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4489536497448732731, guid: 18a1501983c689c45add3e0def7a005e,
+        type: 3}
+      propertyPath: swingSpeed
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5200953456127724726, guid: 18a1501983c689c45add3e0def7a005e,
         type: 3}
@@ -1721,6 +1728,12 @@ MonoBehaviour:
   canGrapple:
     serializedVersion: 2
     m_Bits: 192
+  pmove: {fileID: 1166199585549489940}
+  orientation: {fileID: 3526596385586666366}
+  rb: {fileID: 7629884911460999669}
+  horizontalThrust: 2000
+  forwardThrust: 3000
+  CableSpeed: 20
 --- !u!33 &7674578867076314489
 MeshFilter:
   m_ObjectHideFlags: 0

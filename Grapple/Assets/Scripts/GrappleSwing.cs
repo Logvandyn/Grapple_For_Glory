@@ -13,6 +13,7 @@ public class GrappleSwing : MonoBehaviour
     public Transform gunTip;
     public Transform player;
     public LayerMask canGrapple;
+    public PlayerMovement pmove;
 
     [Header("Swinging")]
     private float maxSwingDistance = 25;
@@ -20,6 +21,13 @@ public class GrappleSwing : MonoBehaviour
     private SpringJoint joint;
 
     private Vector3 currentGrapplePosition;
+
+    [Header("Air Controls")]
+    public Transform orientation;
+    public Rigidbody rb;
+    public float horizontalThrust;
+    public float forwardThrust;
+    public float CableSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +40,8 @@ public class GrappleSwing : MonoBehaviour
     {
         if (Input.GetKeyDown(swingKey)) StartSwing();
         if (Input.GetKeyUp(swingKey)) StopSwing();
+
+        if (joint != null) AirMovement(); //if joint 
     }
 
     void LateUpdate()
@@ -41,6 +51,12 @@ public class GrappleSwing : MonoBehaviour
 
     private void StartSwing()
     {
+        //deactivate grapple
+        GetComponent<Grapple>().EndGrapple();
+        pmove.ResetRestriction();
+
+        pmove.swinging = true;
+
         RaycastHit hit;
         if (Physics.Raycast(cam.position, cam.forward, out hit, maxSwingDistance, canGrapple))
         {
@@ -66,9 +82,9 @@ public class GrappleSwing : MonoBehaviour
         }
     }
 
-    private void StopSwing()
+    public void StopSwing() //gee i sure wish i could use this, if only it were public
     {
-
+        pmove.swinging = false;
         lr.positionCount = 0;
         Destroy(joint);
         lr.enabled = false;
@@ -83,5 +99,37 @@ public class GrappleSwing : MonoBehaviour
 
         lr.SetPosition(0, gunTip.position);
         lr.SetPosition(1, swingPoint);
+    }
+
+    private void AirMovement()
+    {
+        //add force
+        //right
+        if (Input.GetKey(KeyCode.D)) rb.AddForce(orientation.right * horizontalThrust * Time.deltaTime);
+        //left
+        if (Input.GetKey(KeyCode.A)) rb.AddForce(-orientation.right * horizontalThrust * Time.deltaTime);
+        //forward
+        if (Input.GetKey(KeyCode.W)) rb.AddForce(orientation.forward * forwardThrust * Time.deltaTime);
+        //shorten
+        if (Input.GetKey(KeyCode.Space))
+        {
+            Vector3 directionToPoint = swingPoint - transform.position;
+            rb.AddForce(directionToPoint.normalized * forwardThrust * Time.deltaTime);
+            float distanceFromPoint = Vector3.Distance(transform.position, swingPoint);
+
+            joint.maxDistance = distanceFromPoint * 0.8f;
+            joint.minDistance = distanceFromPoint * 0.25f;
+        }
+        //extend
+        /*
+        if (Input.GetKey(KeyCode.S))
+        {
+            float extendDistancePoint = Vector3.Distance(transform.position, swingPoint) + CableSpeed;
+
+            joint.maxDistance = extendDistancePoint * 0.8f;
+            joint.minDistance = extendDistancePoint * 0.25f;
+        }
+        */
+        
     }
 }

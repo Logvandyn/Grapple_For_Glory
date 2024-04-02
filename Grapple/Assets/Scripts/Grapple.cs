@@ -50,13 +50,16 @@ public class Grapple : MonoBehaviour
         //update line position
         if (grappling)
         {
-            lr.SetPosition(0, gunTip.position);
+            lr.SetPosition(0, gunTip.position); //0
         }
     }
 
     private void StartGrapple() //shoot
     {
         if (cooldownTimer > 0) return; //if cooldown is active dont grapple
+        //deactivate swing
+        GetComponent<GrappleSwing>().StopSwing();
+
         grappling = true;
 
         //remove this to move during shoot
