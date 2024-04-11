@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpCooldown;
     public float airMultiplier;
     bool readyToJump = true; //setting it to true fixes the issue of, well, not working
+    public int jumpCount;
 
     public KeyCode jumpKey = KeyCode.Space;
 
@@ -74,6 +75,7 @@ public class PlayerMovement : MonoBehaviour
         if (swinging)
         {
             moveSpeed = swingSpeed;
+            rb.mass = 1;
         }
 
         if (GetComponent<Grapple>().grappleFall == true)
@@ -100,9 +102,14 @@ public class PlayerMovement : MonoBehaviour
         if(Input.GetKey(jumpKey) && readyToJump && grounded) //if space, ready, and on ground
         {
             readyToJump = false;
+            //jumpCount = jumpCount + 1;
             Jump();
             Invoke(nameof(ResetJump), jumpCooldown);
         }
+        /*if (jumpCount == 2)
+        {
+            readyToJump = false;
+        }*/
     }
 
     public void ResetRestriction() //let you move again
@@ -140,6 +147,7 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
             //rb.mass = 1;
             GetComponent<Grapple>().grappleFall = false;
+            jumpCount = 0;
         }
         else if (!grounded)
         {
