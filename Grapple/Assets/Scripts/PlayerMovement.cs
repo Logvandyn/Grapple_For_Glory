@@ -7,7 +7,6 @@ using UnityEngine;
 /// </summary>
 public class PlayerMovement : MonoBehaviour
 {
-
     public float moveSpeed;
     public Transform playerOrientation;
     Vector3 moveDirection;
@@ -39,6 +38,10 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 velToSet;
     public bool enableMoveOnNextTouch; //move once you land
 
+    //swing movement
+    public float swingSpeed;
+    public bool swinging;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -66,6 +69,11 @@ public class PlayerMovement : MonoBehaviour
         if (freeze)
         {
             rb.velocity = Vector3.zero;
+        }
+
+        if (swinging)
+        {
+            moveSpeed = swingSpeed;
         }
     }
 
@@ -106,8 +114,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
-        //deactivate while grappling
+        //deactivate while grappling and swinging
         if (activeGrapple) return;
+        if (swinging) return;
 
         //movement direction
         moveDirection = playerOrientation.forward * vertInput + playerOrientation.right * horizInput; //walk in the direction you look
