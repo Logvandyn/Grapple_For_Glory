@@ -27,8 +27,7 @@ public class Grapple : MonoBehaviour
     public float grappleFOV;
 
     public KeyCode grappleKey = KeyCode.Mouse1;
-    public bool grappling;
-    public bool grappleFall;
+    private bool grappling;
 
     private void Start()
     {
@@ -38,25 +37,11 @@ public class Grapple : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(grappleKey))
-        {
-            StartGrapple();
-            grappleFall = false;
-        }
+        if (Input.GetKeyDown(grappleKey)) StartGrapple();
         //count down cooldown
         if (cooldownTimer > 0)
         {
             cooldownTimer -= Time.deltaTime;
-        }
-        
-        if (Input.GetKeyUp(grappleKey))
-        {
-            grappleFall = true;
-        }
-        //falling
-        if (grappling == true)
-        {
-            movement.rb.mass = 1;
         }
     }
 
@@ -113,10 +98,7 @@ public class Grapple : MonoBehaviour
         if (grapplePointRelativeY < 0) highestPointArc = overshootY;
 
         movement.jumpToPos(grapplePoint, highestPointArc);
-        //movement.rb.mass = 1;
 
-
-        
         Invoke(nameof(EndGrapple), 1f);
     }
 
@@ -129,7 +111,6 @@ public class Grapple : MonoBehaviour
 
         grappling = false;
         cooldownTimer = cooldown;
-        grappleFall = true;
 
         lr.enabled = false;
     }

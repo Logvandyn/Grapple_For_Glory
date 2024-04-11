@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed;
     public Transform playerOrientation;
     Vector3 moveDirection;
-    public Rigidbody rb;
+    Rigidbody rb;
 
     //keyboard
     float horizInput;
@@ -75,15 +75,6 @@ public class PlayerMovement : MonoBehaviour
         {
             moveSpeed = swingSpeed;
         }
-
-        if (GetComponent<Grapple>().grappleFall == true)
-        {
-            rb.mass = 5;
-        }
-        if (GetComponent<Grapple>().grappleFall == false)
-        {
-            rb.mass = 1;
-        }
     }
 
     private void FixedUpdate() //fixed for physics
@@ -135,17 +126,10 @@ public class PlayerMovement : MonoBehaviour
         //movement direction
         moveDirection = playerOrientation.forward * vertInput + playerOrientation.right * horizInput; //walk in the direction you look
         //add force only when grounded
-        if (grounded)
-        {
+        if(grounded)
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
-            //rb.mass = 1;
-            GetComponent<Grapple>().grappleFall = false;
-        }
-        else if (!grounded)
-        {
+        else if(!grounded)
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
-            //rb.mass = 5;
-        }
     }
 
     private void SpeedControl() //stop the player from getting too fast- remove this if we want to be able to gain speed as we move?
