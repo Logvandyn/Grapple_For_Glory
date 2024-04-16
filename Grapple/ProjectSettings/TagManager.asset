@@ -6,7 +6,6 @@ TagManager:
   tags:
   - Hazard
   - Lava
-  - Scenery
   layers:
   - Default
   - TransparentFX
