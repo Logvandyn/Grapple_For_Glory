@@ -106,6 +106,7 @@ public class PlayerMovement : MonoBehaviour
             Jump();
             Invoke(nameof(ResetJump), jumpCooldown);
         }
+        // why do you hate me
         /*if (jumpCount == 2)
         {
             readyToJump = false;
