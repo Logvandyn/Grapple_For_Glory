@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed;
     public Transform playerOrientation;
     Vector3 moveDirection;
-    Rigidbody rb;
+    public Rigidbody rb;
 
     //keyboard
     float horizInput;
@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpCooldown;
     public float airMultiplier;
     bool readyToJump = true; //setting it to true fixes the issue of, well, not working
+    public int jumpCount;
 
     public KeyCode jumpKey = KeyCode.Space;
 
@@ -74,6 +75,16 @@ public class PlayerMovement : MonoBehaviour
         if (swinging)
         {
             moveSpeed = swingSpeed;
+            rb.mass = 1;
+        }
+
+        if (GetComponent<Grapple>().grappleFall == true)
+        {
+            rb.mass = 5;
+        }
+        if (GetComponent<Grapple>().grappleFall == false)
+        {
+            rb.mass = 1;
         }
     }
 
@@ -91,9 +102,15 @@ public class PlayerMovement : MonoBehaviour
         if(Input.GetKey(jumpKey) && readyToJump && grounded) //if space, ready, and on ground
         {
             readyToJump = false;
+            //jumpCount = jumpCount + 1;
             Jump();
             Invoke(nameof(ResetJump), jumpCooldown);
         }
+        // why do you hate me
+        /*if (jumpCount == 2)
+        {
+            readyToJump = false;
+        }*/
     }
 
     public void ResetRestriction() //let you move again
@@ -110,6 +127,11 @@ public class PlayerMovement : MonoBehaviour
 
             GetComponent<Grapple>().EndGrapple(); //make sure it's public you doofus
         }
+        if (collision.gameObject.tag == "Hazard")
+        {
+            GetComponent<GrappleSwing>().lr.enabled = false;
+            GetComponent<GrappleSwing>().StopSwing();
+        }
     }
 
     private void MovePlayer()
@@ -121,10 +143,18 @@ public class PlayerMovement : MonoBehaviour
         //movement direction
         moveDirection = playerOrientation.forward * vertInput + playerOrientation.right * horizInput; //walk in the direction you look
         //add force only when grounded
-        if(grounded)
+        if (grounded)
+        {
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
-        else if(!grounded)
+            //rb.mass = 1;
+            GetComponent<Grapple>().grappleFall = false;
+            jumpCount = 0;
+        }
+        else if (!grounded)
+        {
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
+            //rb.mass = 5;
+        }
     }
 
     private void SpeedControl() //stop the player from getting too fast- remove this if we want to be able to gain speed as we move?
