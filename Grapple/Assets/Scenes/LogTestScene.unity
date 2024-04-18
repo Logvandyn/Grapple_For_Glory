@@ -253,6 +253,12 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
+--- !u!54 &638771991 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 9215233452192060854, guid: ffd2107be49fa254297ec4cdfa4780a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 3191990032882141643}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -314,7 +320,7 @@ GameObject:
   - component: {fileID: 857994891}
   - component: {fileID: 857994890}
   - component: {fileID: 857994889}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Ground (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -524,7 +530,7 @@ GameObject:
   - component: {fileID: 1060804565}
   - component: {fileID: 1060804564}
   - component: {fileID: 1060804563}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Wall (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -629,7 +635,7 @@ GameObject:
   - component: {fileID: 1104523252}
   - component: {fileID: 1104523251}
   - component: {fileID: 1104523250}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -734,7 +740,7 @@ GameObject:
   - component: {fileID: 1186220611}
   - component: {fileID: 1186220610}
   - component: {fileID: 1186220609}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Wall
   m_TagString: Scenery
   m_Icon: {fileID: 0}
@@ -944,7 +950,7 @@ GameObject:
   - component: {fileID: 1909491291}
   - component: {fileID: 1909491290}
   - component: {fileID: 1909491289}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Wall (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1049,7 +1055,7 @@ GameObject:
   - component: {fileID: 2108872196}
   - component: {fileID: 2108872195}
   - component: {fileID: 2108872194}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Wall (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1200,6 +1206,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4489536497448732731, guid: ffd2107be49fa254297ec4cdfa4780a3,
+        type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 638771991}
+    - target: {fileID: 4489536497448732731, guid: ffd2107be49fa254297ec4cdfa4780a3,
+        type: 3}
+      propertyPath: jumpForce
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4489536497448732731, guid: ffd2107be49fa254297ec4cdfa4780a3,
+        type: 3}
+      propertyPath: whatIsGround.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5200953456127724726, guid: ffd2107be49fa254297ec4cdfa4780a3,
         type: 3}
       propertyPath: m_Name
@@ -1214,6 +1235,16 @@ PrefabInstance:
         type: 3}
       propertyPath: grappleFOV
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8434411740600045530, guid: ffd2107be49fa254297ec4cdfa4780a3,
+        type: 3}
+      propertyPath: canGrapple.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 8872495322646103866, guid: ffd2107be49fa254297ec4cdfa4780a3,
+        type: 3}
+      propertyPath: canGrapple.m_Bits
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 9215233452192060854, guid: ffd2107be49fa254297ec4cdfa4780a3,
         type: 3}
