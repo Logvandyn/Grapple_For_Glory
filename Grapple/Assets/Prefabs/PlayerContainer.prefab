@@ -246,19 +246,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 7
   playerOrientation: {fileID: 846219635676117963}
-  rb: {fileID: 0}
   groundDrag: 5
   playerHeight: 2
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   jumpForce: 6
   jumpCooldown: 0.25
   airMultiplier: 0.4
-  jumpCount: 0
   jumpKey: 32
-  freeze: 0
-  activeGrapple: 0
-  enableMoveOnNextTouch: 0
-  swingSpeed: 0
-  swinging: 0
