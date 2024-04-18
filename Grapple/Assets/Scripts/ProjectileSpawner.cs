@@ -7,11 +7,13 @@ using UnityEngine;
 /// </summary>
 public class ProjectileSpawner : MonoBehaviour
 {
+
+    public float FireSpeed = 2f;
     public GameObject ProjHazPrefab;
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("Shoot", 0f, 2f); //method, float time, float repeat
+        InvokeRepeating("Shoot", 0f, FireSpeed); //method, float time, float repeat
     }
 
     public void Shoot() //spawns the bullet
