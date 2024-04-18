@@ -75,16 +75,16 @@ public class PlayerMovement : MonoBehaviour
         if (swinging)
         {
             moveSpeed = swingSpeed;
-            rb.mass = 1;
+            //rb.mass = 1;
         }
 
         if (GetComponent<Grapple>().grappleFall == true)
         {
-            rb.mass = 5;
+            //rb.mass = 5;
         }
         if (GetComponent<Grapple>().grappleFall == false)
         {
-            rb.mass = 1;
+            //rb.mass = 1;
         }
     }
 
@@ -147,8 +147,8 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
             //rb.mass = 1;
-            GetComponent<Grapple>().grappleFall = false;
-            jumpCount = 0;
+            //GetComponent<Grapple>().grappleFall = false;
+            //jumpCount = 0;
         }
         else if (!grounded)
         {
