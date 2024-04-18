@@ -74,7 +74,7 @@ public class GrappleSwing : MonoBehaviour
             float distanceFromPoint = Vector3.Distance(player.position, swingPoint);
 
             // the distance grapple will try to keep from the grapple point 
-            joint.maxDistance = distanceFromPoint * 0.8f;
+            joint.maxDistance = distanceFromPoint * 1f;
             joint.minDistance = distanceFromPoint * 0.25f;
 
             //customize values as you like

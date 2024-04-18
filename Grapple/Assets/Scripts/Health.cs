@@ -11,9 +11,11 @@ public class Health : MonoBehaviour
     public int maxlives = 3;
     public int currentlives;
     public int amount;
-    private Vector3 startPosition; //for spawning / respawning
+    public Vector3 startPosition; //for spawning / respawning
     public TextMeshProUGUI healthcounter;
     public TextMeshProUGUI livescounter;
+    public TextMeshProUGUI lose;
+    public TextMeshProUGUI win;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +46,10 @@ public class Health : MonoBehaviour
         {
             Respawn();
         }
+        if (other.gameObject.tag == "Win")
+        {
+            win.text = "YOU WIN!";
+        }
     }
  
    
@@ -58,6 +64,10 @@ public class Health : MonoBehaviour
         //counts the Health you have left
         healthcounter.text = "Health " + currenthealth.ToString();
         livescounter.text = "Lives " + currentlives.ToString();
+        if (currentlives <= 0)
+        {
+            lose.text = "GAME OVER";
+        }
 
     }
     private void Respawn()
