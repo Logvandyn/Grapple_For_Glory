@@ -650,10 +650,11 @@ MonoBehaviour:
   playerHeight: 2
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   jumpForce: 6
   jumpCooldown: 0.25
   airMultiplier: 0.4
+  jumpCount: 0
   jumpKey: 32
   freeze: 0
   activeGrapple: 0
@@ -676,7 +677,7 @@ MonoBehaviour:
   gunTip: {fileID: 7684054255293025709}
   canGrapple:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 0
   lr: {fileID: 3466633515876185932}
   camscript: {fileID: 8894764447133125385}
   maxGrappleDist: 25
@@ -706,7 +707,7 @@ MonoBehaviour:
   player: {fileID: 37395609636914065}
   canGrapple:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 0
   pmove: {fileID: 4489536497448732731}
   camscript: {fileID: 0}
   grappleFOV: 0
