@@ -56,7 +56,7 @@ public class Grapple : MonoBehaviour
         //falling
         if (grappling == true)
         {
-            movement.rb.mass = 1;
+            //movement.rb.mass = 1;
         }
     }
 

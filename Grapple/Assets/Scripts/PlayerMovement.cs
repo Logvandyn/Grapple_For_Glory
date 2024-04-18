@@ -75,16 +75,16 @@ public class PlayerMovement : MonoBehaviour
         if (swinging)
         {
             moveSpeed = swingSpeed;
-            rb.mass = 1;
+            //rb.mass = 1;
         }
 
         if (GetComponent<Grapple>().grappleFall == true)
         {
-            rb.mass = 5;
+            //rb.mass = 5;
         }
         if (GetComponent<Grapple>().grappleFall == false)
         {
-            rb.mass = 1;
+            //rb.mass = 1;
         }
     }
 

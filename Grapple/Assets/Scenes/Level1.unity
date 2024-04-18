@@ -1153,6 +1153,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1222880560568907950, guid: ffd2107be49fa254297ec4cdfa4780a3,
+        type: 3}
+      propertyPath: field of view
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4489536497448732731, guid: ffd2107be49fa254297ec4cdfa4780a3,
+        type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 1560294293}
     - target: {fileID: 4489536497448732731, guid: ffd2107be49fa254297ec4cdfa4780a3,
         type: 3}
       propertyPath: whatIsGround.m_Bits
@@ -1162,6 +1172,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerContainer 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8434411740600045530, guid: ffd2107be49fa254297ec4cdfa4780a3,
+        type: 3}
+      propertyPath: camscript
+      value: 
+      objectReference: {fileID: 1255565943}
+    - target: {fileID: 8434411740600045530, guid: ffd2107be49fa254297ec4cdfa4780a3,
+        type: 3}
+      propertyPath: grappleFOV
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8434411740600045530, guid: ffd2107be49fa254297ec4cdfa4780a3,
+        type: 3}
+      propertyPath: canGrapple.m_Bits
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8872495322646103866, guid: ffd2107be49fa254297ec4cdfa4780a3,
         type: 3}
@@ -1504,7 +1529,7 @@ GameObject:
   - component: {fileID: 1177055764}
   - component: {fileID: 1177055763}
   - component: {fileID: 1177055762}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: Grappleablesurface (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1803,6 +1828,18 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!114 &1255565943 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8894764447133125385, guid: ffd2107be49fa254297ec4cdfa4780a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 703167055}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61f36599f48f4be4bb76709fadf5dd25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1436961984
 GameObject:
   m_ObjectHideFlags: 0
@@ -2072,6 +2109,12 @@ MonoBehaviour:
   livescounter: {fileID: 1571801313}
   lose: {fileID: 624424626}
   win: {fileID: 22788547}
+--- !u!54 &1560294293 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 9215233452192060854, guid: ffd2107be49fa254297ec4cdfa4780a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 703167055}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1571801311
 GameObject:
   m_ObjectHideFlags: 0
@@ -2473,7 +2516,7 @@ GameObject:
   - component: {fileID: 1669701033}
   - component: {fileID: 1669701032}
   - component: {fileID: 1669701031}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: Grappleablesurface (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2699,7 +2742,7 @@ GameObject:
   - component: {fileID: 1795690367}
   - component: {fileID: 1795690366}
   - component: {fileID: 1795690365}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: Grappleablesurface (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
