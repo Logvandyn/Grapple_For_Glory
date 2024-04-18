@@ -1215,16 +1215,20 @@ PrefabInstance:
       propertyPath: grappleFOV
       value: 100
       objectReference: {fileID: 0}
+<<<<<<<< HEAD:Grapple/Assets/Scenes/LogTestScene.unity
     - target: {fileID: 9215233452192060854, guid: ffd2107be49fa254297ec4cdfa4780a3,
         type: 3}
       propertyPath: m_Mass
       value: 1
       objectReference: {fileID: 0}
+========
+>>>>>>>> origin/Logan:Grapple/Assets/Scenes/TestScene.unity
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffd2107be49fa254297ec4cdfa4780a3, type: 3}
+<<<<<<<< HEAD:Grapple/Assets/Scenes/LogTestScene.unity
 --- !u!1001 &4734368170565641939
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1293,6 +1297,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38b1f0d486bff734e9cbf07d5b02b065, type: 3}
+========
+>>>>>>>> origin/Logan:Grapple/Assets/Scenes/TestScene.unity
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1308,4 +1314,7 @@ SceneRoots:
   - {fileID: 1060804566}
   - {fileID: 1909491292}
   - {fileID: 923315137}
+<<<<<<<< HEAD:Grapple/Assets/Scenes/LogTestScene.unity
   - {fileID: 4734368170565641939}
+========
+>>>>>>>> origin/Logan:Grapple/Assets/Scenes/TestScene.unity
