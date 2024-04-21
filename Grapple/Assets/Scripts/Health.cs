@@ -36,6 +36,11 @@ public class Health : MonoBehaviour
         }
     }
 
+    public void Heal()
+    {
+        currenthealth = maxhealth; //restore health to full
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Hazard")
@@ -49,6 +54,11 @@ public class Health : MonoBehaviour
         if (other.gameObject.tag == "Win")
         {
             win.text = "YOU WIN!";
+        }
+        //heal
+        if (other.gameObject.tag == "Health") //other, not collision
+        {
+            Heal();
         }
     }
  

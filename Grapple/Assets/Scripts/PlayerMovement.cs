@@ -132,6 +132,7 @@ public class PlayerMovement : MonoBehaviour
             GetComponent<GrappleSwing>().lr.enabled = false;
             GetComponent<GrappleSwing>().StopSwing();
         }
+        
     }
 
     private void MovePlayer()

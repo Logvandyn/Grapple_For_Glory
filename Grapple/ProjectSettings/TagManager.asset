@@ -5,20 +5,18 @@ TagManager:
   serializedVersion: 2
   tags:
   - Hazard
-  - Lava
   - Scenery
+  - Health
+  - Win
+  - Lava
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - GrappleMe
   - Water
   - UI
-<<<<<<< Updated upstream
-  - Grappleme
-=======
-  - Grapple
->>>>>>> Stashed changes
+  - 
   - 
   - 
   - 
