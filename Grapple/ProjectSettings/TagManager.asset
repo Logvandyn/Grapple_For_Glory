@@ -9,6 +9,10 @@ TagManager:
   - Health
   - Win
   - Lava
+  - Start
+  - Portal
+  - Kill
+  - Spawnpoint
   layers:
   - Default
   - TransparentFX

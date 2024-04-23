@@ -53,10 +53,21 @@ public class Health : MonoBehaviour
         {
             Respawn();
         }
+        if (other.gameObject.tag == "Kill")
+        {
+            Respawn();
+        }
         if (other.gameObject.tag == "Win")
         {
-            win.text = "YOU WIN!";
+            win.text = "YOU WIN!"; //only enable this on last level cause it shows up the whole time
             GetComponent<PlayerMovement>().enabled = false;
+            //GetComponent<SceneSwitch>().switchScene(1);
+            //SceneManager.LoadScene(1);
+        }
+        if (other.gameObject.tag == "Portal")
+        {
+            //win.text = "YOU WIN!"; //only enable this on last level cause it shows up the whole time
+            //GetComponent<PlayerMovement>().enabled = false;
             //GetComponent<SceneSwitch>().switchScene(1);
             SceneManager.LoadScene(1);
         }
@@ -64,6 +75,12 @@ public class Health : MonoBehaviour
         if (other.gameObject.tag == "Health") //other, not collision
         {
             Heal();
+        }
+
+        //super scuffed way for set spawn
+        if (other.gameObject.tag == "Spawnpoint") //this is gonna be so stupid if it works
+        {
+            startPosition = this.gameObject.transform.position;
         }
     }
  
@@ -88,7 +105,7 @@ public class Health : MonoBehaviour
     }
     private void Respawn()
     {
-            transform.position = startPosition;
+            transform.position = startPosition; 
         currenthealth = maxhealth;
         currentlives -= 1;
     }
