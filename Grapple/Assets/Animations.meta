@@ -1,6 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Grapple/Assets/Scenes/Level2.unity.meta
+guid: f1a789838bf09414b9428f778942a671
+========
 guid: 3cfd47ec92860e145aa86f57383e2331
 folderAsset: yes
+>>>>>>>> Main2:Grapple/Assets/Animations.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

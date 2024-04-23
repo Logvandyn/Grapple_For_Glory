@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8657219568147936660}
   - component: {fileID: 2524037886012700398}
   - component: {fileID: 5145579075731681668}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: Grappleablesurface (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
