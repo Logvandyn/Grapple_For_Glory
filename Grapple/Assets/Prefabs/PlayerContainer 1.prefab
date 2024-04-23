@@ -578,6 +578,7 @@ GameObject:
   - component: {fileID: 4489536497448732731}
   - component: {fileID: 8872495322646103866}
   - component: {fileID: 8434411740600045530}
+  - component: {fileID: 4804310612706680179}
   m_Layer: 0
   m_Name: PlayerContainer 1
   m_TagString: Player
@@ -645,15 +646,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 7
   playerOrientation: {fileID: 413671984971032340}
-  rb: {fileID: 0}
+  rb: {fileID: 9215233452192060854}
   groundDrag: 5
   playerHeight: 2
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 1
   jumpForce: 6
   jumpCooldown: 0.25
   airMultiplier: 0.4
+  jumpCount: 0
   jumpKey: 32
   freeze: 0
   activeGrapple: 0
@@ -676,7 +678,7 @@ MonoBehaviour:
   gunTip: {fileID: 7684054255293025709}
   canGrapple:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 8
   lr: {fileID: 3466633515876185932}
   camscript: {fileID: 8894764447133125385}
   maxGrappleDist: 25
@@ -706,15 +708,38 @@ MonoBehaviour:
   player: {fileID: 37395609636914065}
   canGrapple:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 8
   pmove: {fileID: 4489536497448732731}
-  camscript: {fileID: 0}
-  grappleFOV: 0
+  camscript: {fileID: 8894764447133125385}
+  grappleFOV: 100
   orientation: {fileID: 413671984971032340}
   rb: {fileID: 9215233452192060854}
   horizontalThrust: 2000
   forwardThrust: 3000
   CableSpeed: 20
+--- !u!114 &4804310612706680179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5200953456127724726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c4d33d6f4413aa40b9d5a6774137f87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxhealth: 3
+  currenthealth: 0
+  maxlives: 3
+  currentlives: 0
+  amount: 0
+  startPosition: {x: -1.646785, y: 7.27, z: -1.607761}
+  healthcounter: {fileID: 0}
+  livescounter: {fileID: 0}
+  lose: {fileID: 0}
+  win: {fileID: 0}
+  rb: {fileID: 0}
 --- !u!1 &5922165472897937427
 GameObject:
   m_ObjectHideFlags: 0

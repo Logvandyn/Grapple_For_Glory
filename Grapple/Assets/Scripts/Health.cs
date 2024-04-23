@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
@@ -11,7 +12,8 @@ public class Health : MonoBehaviour
     public int maxlives = 3;
     public int currentlives;
     public int amount;
-    public Vector3 startPosition; //for spawning / respawning
+    //public Vector3 startPosition; //for spawning / respawning
+    private GameObject StartPos;
     public TextMeshProUGUI healthcounter;
     public TextMeshProUGUI livescounter;
     public TextMeshProUGUI lose;
@@ -23,6 +25,8 @@ public class Health : MonoBehaviour
         currenthealth = maxhealth;
         currentlives = maxlives;
         SetCountText();
+        StartPos = GameObject.FindGameObjectWithTag("Start");
+        transform.position = StartPos.transform.position;
     }
 
     public void TakeDamage(int amount)
@@ -47,10 +51,9 @@ public class Health : MonoBehaviour
         {
             Respawn();
         }
-        if (other.gameObject.tag == "Win")
+        if (other.gameObject.tag == "Level2")
         {
-            win.text = "YOU WIN!";
-            GetComponent<PlayerMovement>().enabled = false;
+            SceneManager.LoadScene(2);
         }
     }
  
@@ -76,7 +79,7 @@ public class Health : MonoBehaviour
     }
     private void Respawn()
     {
-            transform.position = startPosition;
+        transform.position = StartPos.transform.position;
         currenthealth = maxhealth;
         currentlives -= 1;
     }

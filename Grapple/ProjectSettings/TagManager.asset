@@ -8,6 +8,8 @@ TagManager:
   - Hazard
   - Lava
   - Scenery
+  - Level2
+  - Start
   layers:
   - Default
   - TransparentFX
