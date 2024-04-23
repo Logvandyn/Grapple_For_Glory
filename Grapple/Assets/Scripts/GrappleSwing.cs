@@ -95,8 +95,8 @@ public class GrappleSwing : MonoBehaviour
         Destroy(joint);
         lr.enabled = false;
         //reset FOV
-        camscript.DoFov(90f);
-        pmove.rb.mass = 5;
+        //camscript.DoFov(90f);
+        //pmove.rb.mass = 5;
     }
 
     void DrawRope()

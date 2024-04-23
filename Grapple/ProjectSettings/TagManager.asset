@@ -4,13 +4,15 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Win
   - Hazard
   - Lava
+  - Scenery
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Grapple
   - Water
   - UI
   - 

@@ -16,6 +16,7 @@ public class Health : MonoBehaviour
     public TextMeshProUGUI livescounter;
     public TextMeshProUGUI lose;
     public TextMeshProUGUI win;
+    public Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +50,7 @@ public class Health : MonoBehaviour
         if (other.gameObject.tag == "Win")
         {
             win.text = "YOU WIN!";
+            GetComponent<PlayerMovement>().enabled = false;
         }
     }
  
@@ -67,6 +69,8 @@ public class Health : MonoBehaviour
         if (currentlives <= 0)
         {
             lose.text = "GAME OVER";
+            GetComponent<PlayerMovement>().enabled = false;
+
         }
 
     }
