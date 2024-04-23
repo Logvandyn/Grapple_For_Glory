@@ -42,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
     //swing movement
     public float swingSpeed;
     public bool swinging;
+    internal static bool enable;
 
     // Start is called before the first frame update
     void Start()
