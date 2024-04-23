@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
@@ -12,21 +11,17 @@ public class Health : MonoBehaviour
     public int maxlives = 3;
     public int currentlives;
     public int amount;
-    //public Vector3 startPosition; //for spawning / respawning
-    private GameObject StartPos;
+    public Vector3 startPosition; //for spawning / respawning
     public TextMeshProUGUI healthcounter;
     public TextMeshProUGUI livescounter;
     public TextMeshProUGUI lose;
     public TextMeshProUGUI win;
-    public Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
         currenthealth = maxhealth;
         currentlives = maxlives;
         SetCountText();
-        StartPos = GameObject.FindGameObjectWithTag("Start");
-        transform.position = StartPos.transform.position;
     }
 
     public void TakeDamage(int amount)
@@ -41,6 +36,11 @@ public class Health : MonoBehaviour
         }
     }
 
+    public void Heal()
+    {
+        currenthealth = maxhealth; //restore health to full
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Hazard")
@@ -51,9 +51,14 @@ public class Health : MonoBehaviour
         {
             Respawn();
         }
-        if (other.gameObject.tag == "Level2")
+        if (other.gameObject.tag == "Win")
         {
-            SceneManager.LoadScene(2);
+            win.text = "YOU WIN!";
+        }
+        //heal
+        if (other.gameObject.tag == "Health") //other, not collision
+        {
+            Heal();
         }
     }
  
@@ -72,14 +77,12 @@ public class Health : MonoBehaviour
         if (currentlives <= 0)
         {
             lose.text = "GAME OVER";
-            GetComponent<PlayerMovement>().enabled = false;
-
         }
 
     }
     private void Respawn()
     {
-        transform.position = StartPos.transform.position;
+            transform.position = startPosition;
         currenthealth = maxhealth;
         currentlives -= 1;
     }
