@@ -1446,6 +1446,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 127358838}
   mainCamera: {fileID: 609104605}
+  canvas: {fileID: 2063386581}
 --- !u!4 &1043791040
 Transform:
   m_ObjectHideFlags: 0
