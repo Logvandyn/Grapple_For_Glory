@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+using UnityEngine.SceneManagement;
+
 public class Health : MonoBehaviour
 {
     public int maxhealth = 3;
@@ -54,6 +56,9 @@ public class Health : MonoBehaviour
         if (other.gameObject.tag == "Win")
         {
             win.text = "YOU WIN!";
+            GetComponent<PlayerMovement>().enabled = false;
+            //GetComponent<SceneSwitch>().switchScene(1);
+            SceneManager.LoadScene(1);
         }
         //heal
         if (other.gameObject.tag == "Health") //other, not collision
@@ -77,6 +82,7 @@ public class Health : MonoBehaviour
         if (currentlives <= 0)
         {
             lose.text = "GAME OVER";
+            GetComponent<PlayerMovement>().enabled = false;
         }
 
     }
