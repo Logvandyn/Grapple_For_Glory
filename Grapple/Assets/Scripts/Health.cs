@@ -117,5 +117,8 @@ public class Health : MonoBehaviour
             transform.position = startPosition; 
         currenthealth = maxhealth;
         currentlives -= 1;
+
+        GetComponent<GrappleSwing>().lr.enabled = false; //stop grappling
+        GetComponent<GrappleSwing>().StopSwing();
     }
 }

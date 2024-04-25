@@ -29,7 +29,8 @@ public class GrappleSwing : MonoBehaviour
     public Transform orientation;
     public Rigidbody rb;
     public float horizontalThrust;
-    public float forwardThrust; //add more to go faster
+    public float forwardThrust_times100; //add more to go faster 
+    public float reelStrength = 3000;
     public float CableSpeed;
 
     // Start is called before the first frame update
@@ -44,7 +45,7 @@ public class GrappleSwing : MonoBehaviour
         if (Input.GetKeyDown(swingKey)) StartSwing();
         if (Input.GetKeyUp(swingKey)) StopSwing();
 
-        if (joint != null) AirMovement(); //if joint 
+        if (joint != null) AirMovement(); //if joint: this means you lose your momentum once the rope breaks
     }
 
     void LateUpdate()
@@ -118,12 +119,12 @@ public class GrappleSwing : MonoBehaviour
         //left
         if (Input.GetKey(KeyCode.A)) rb.AddForce(-orientation.right * horizontalThrust * Time.deltaTime);
         //forward
-        if (Input.GetKey(KeyCode.W)) rb.AddForce(orientation.forward * forwardThrust * Time.deltaTime);
+        if (Input.GetKey(KeyCode.W)) rb.AddForce(orientation.forward * (forwardThrust_times100 * 100) * Time.deltaTime);
         //shorten
         if (Input.GetKey(KeyCode.Space))
         {
             Vector3 directionToPoint = swingPoint - transform.position;
-            rb.AddForce(directionToPoint.normalized * forwardThrust * Time.deltaTime);
+            rb.AddForce(directionToPoint.normalized * reelStrength * Time.deltaTime);
             float distanceFromPoint = Vector3.Distance(transform.position, swingPoint);
 
             joint.maxDistance = distanceFromPoint * 0.8f;
