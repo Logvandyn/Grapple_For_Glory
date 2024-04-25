@@ -758,11 +758,12 @@ MonoBehaviour:
     m_Bits: 8
   pmove: {fileID: 5213589096799842892}
   camscript: {fileID: 1886423345184215994}
+  maxSwingDistance: 50
   grappleFOV: 100
   orientation: {fileID: 9185225722364083274}
   rb: {fileID: 3763392612559501276}
   horizontalThrust: 2000
-  forwardThrust: 3000
+  forwardThrust: 5000
   CableSpeed: 20
 --- !u!114 &8807265059945106774
 MonoBehaviour:

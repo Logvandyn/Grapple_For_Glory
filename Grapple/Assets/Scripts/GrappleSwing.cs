@@ -18,7 +18,7 @@ public class GrappleSwing : MonoBehaviour
 
 
     [Header("Swinging")]
-    private float maxSwingDistance = 25;
+    public float maxSwingDistance = 50; //25 was too short
     private Vector3 swingPoint;
     private SpringJoint joint;
     public float grappleFOV;
@@ -29,7 +29,7 @@ public class GrappleSwing : MonoBehaviour
     public Transform orientation;
     public Rigidbody rb;
     public float horizontalThrust;
-    public float forwardThrust;
+    public float forwardThrust; //add more to go faster
     public float CableSpeed;
 
     // Start is called before the first frame update

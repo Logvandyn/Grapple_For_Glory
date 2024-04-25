@@ -40,7 +40,16 @@ public class Health : MonoBehaviour
 
     public void Heal()
     {
-        currenthealth = maxhealth; //restore health to full
+        if (currenthealth == maxhealth)
+        {
+            currentlives += 1; //add a life
+        }
+        else
+        {
+            currenthealth = maxhealth; //restore health to full
+        }
+        
+        
     }
 
     private void OnTriggerEnter(Collider other)
