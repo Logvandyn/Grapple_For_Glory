@@ -19,7 +19,7 @@ public class SpeedZone : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<PlayerMovement>().moveSpeed = 14;
+            other.gameObject.GetComponent<PlayerMovement>().moveSpeed = 40;
         }
     }
     private void OnTriggerExit(Collider other)
