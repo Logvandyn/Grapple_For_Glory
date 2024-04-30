@@ -48,6 +48,6 @@ public class CheckPoint : MonoBehaviour
             }
             yield return new WaitForSeconds(.1f);
         }
-        GetComponent<MeshRenderer>().enabled = true;
+        player.GetComponent<MeshRenderer>().enabled = true;
     }
 }

@@ -18,6 +18,12 @@ public class Health : MonoBehaviour
     public TextMeshProUGUI livescounter;
     public TextMeshProUGUI lose;
     public TextMeshProUGUI win;
+
+    //timer
+    public float timeLeft = 105.0f;
+    public TextMeshProUGUI timeText; // used for showing countdown from 3, 2, 1 
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -98,7 +104,38 @@ public class Health : MonoBehaviour
         void Update()
     {
         SetCountText();
+        //timer
+        //timeLeft -= Time.deltaTime;
+        //timeLeft -= 1;
+        //doesnt call text update anywhere
+
+        //does it have to be fixed update?
+        //A: No it doesnt
+
+        if (timeLeft >= 0)
+        {
+            timeLeft -= Time.deltaTime;
+            //timeLeft -= 1;
+            //doesnt call text update anywhere
+            timeText.text = "TIME LEFT: " + timeLeft.ToString();
+        }
+        //game over
+        if (timeLeft <= 0)
+        {
+            GameOver();
+            timeText.text = "TIME LEFT: NONE, YOU DIDN'T MAKE IT";
+        }
     }
+
+    /*
+    private void FixedUpdate() //HANDLED IN NORMAL UPDATE
+    {
+        //timeLeft -= Time.deltaTime;
+            //timeLeft -= 1;
+            //doesnt call text update anywhere
+        //timeText.text = "TIME LEFT: " + timeLeft.ToString();
+    }
+    */
 
     public void SetCountText()
     {
@@ -107,8 +144,7 @@ public class Health : MonoBehaviour
         livescounter.text = "Lives " + currentlives.ToString();
         if (currentlives <= 0)
         {
-            lose.text = "GAME OVER";
-            GetComponent<PlayerMovement>().enabled = false;
+            GameOver();
         }
 
     }
@@ -120,5 +156,11 @@ public class Health : MonoBehaviour
 
         GetComponent<GrappleSwing>().lr.enabled = false; //stop grappling
         GetComponent<GrappleSwing>().StopSwing();
+    }
+
+    public void GameOver()
+    {
+        lose.text = "GAME OVER";
+        GetComponent<PlayerMovement>().enabled = false;
     }
 }
