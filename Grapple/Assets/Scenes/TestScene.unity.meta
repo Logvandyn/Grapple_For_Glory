@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Grapple/Assets/Scenes/TestScene.unity.meta
 guid: 8ac2f513d907f294e8baff130e5442d4
 DefaultImporter:
+========
+guid: 261ad702319cab54cbd04c3cdc363fd1
+PrefabImporter:
+>>>>>>>> logan2:Grapple/Assets/Prefabs/SpeedZone.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

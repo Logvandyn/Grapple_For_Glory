@@ -9,6 +9,7 @@ public class SceneSwitch : MonoBehaviour
 
     public GameObject Player;
     public GameObject mainCamera;
+    public GameObject canvas;
 
     public static SceneSwitch instance;
 
@@ -19,6 +20,7 @@ public class SceneSwitch : MonoBehaviour
         DontDestroyOnLoad(Player);
         DontDestroyOnLoad(mainCamera);
         DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(canvas);
     }
     public void switchScene(int sceneNumber)
     {

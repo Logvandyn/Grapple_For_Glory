@@ -1,9 +1,9 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Grapple/Assets/Prefabs/HealthPickup.prefab.meta
-guid: eb1bdb40bbbdb4b44bc285f8924d541e
-========
+<<<<<<<< HEAD:Grapple/Assets/Prefabs/Grappleablesurface (4).prefab.meta
 guid: adcfb97eb5b66194783ba1da5af1cdab
->>>>>>>> logan2:Grapple/Assets/Prefabs/Grappleablesurface (4).prefab.meta
+========
+guid: 60178f25cac53ee4ca064e8b876f4ab1
+>>>>>>>> Main2:Grapple/Assets/Prefabs/MovingPlatforms.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 

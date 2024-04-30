@@ -626,6 +626,7 @@ GameObject:
   - component: {fileID: 1591191664380068927}
   - component: {fileID: 8807265059945106774}
   - component: {fileID: 8928569305661902056}
+  - component: {fileID: 8983542574524720489}
   m_Layer: 0
   m_Name: PlayerFinal 1
   m_TagString: Player
@@ -699,7 +700,7 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 1
-  jumpForce: 6
+  jumpForce: 8
   jumpCooldown: 0.25
   airMultiplier: 0.4
   jumpCount: 0
@@ -758,11 +759,13 @@ MonoBehaviour:
     m_Bits: 8
   pmove: {fileID: 5213589096799842892}
   camscript: {fileID: 1886423345184215994}
+  maxSwingDistance: 50
   grappleFOV: 100
   orientation: {fileID: 9185225722364083274}
   rb: {fileID: 3763392612559501276}
   horizontalThrust: 2000
-  forwardThrust: 3000
+  forwardThrust_times100: 30
+  reelStrength: 3000
   CableSpeed: 20
 --- !u!114 &8807265059945106774
 MonoBehaviour:
@@ -809,3 +812,16 @@ CapsuleCollider:
   m_Height: 3.06
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8983542574524720489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8274958836703044412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d75a57d66ce119c45b59a2da72d5a05f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 8274958836703044412}

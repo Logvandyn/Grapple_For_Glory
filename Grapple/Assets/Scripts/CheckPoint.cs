@@ -6,10 +6,12 @@ using UnityEngine.SceneManagement;
 public class CheckPoint : MonoBehaviour
 {
     private Vector3 startPosition;
+    public GameObject player;
 
     private void Start()
     {
-        startPosition = transform.position;
+        //startPosition = transform.position;
+        //transform.position = startPosition; //flip em
     }
 
 
@@ -17,13 +19,18 @@ public class CheckPoint : MonoBehaviour
     {
         if(other.transform.tag == "CheckPoint")
         {
-            transform.position = startPosition;
+            //transform.position = startPosition;
+            //needs the player
+            GetComponent<Health>().startPosition = transform.position; //player start = checkpoint pos
+            //startPosition = transform.position; //flip em
             Blink();
-            GetComponent<Transform>().position = startPosition;
+            //player.GetComponent<Transform>().position = startPosition; //startpos needs to be in Health not in CheckPoint
+
+            //GameObject.FindGameObjectWithTag("Player").transform.position = gameObject.transform.position;
         }
         if (other.tag == "Exit")
         {
-            SceneSwitch.instance.switchScene(1);
+            //SceneSwitch.instance.switchScene(1);
         }
     }
     //cause the player to blink
@@ -33,14 +40,14 @@ public class CheckPoint : MonoBehaviour
         {
             if (index % 2 == 0)
             {
-                GetComponent<MeshRenderer>().enabled = false;
+                player.GetComponent<MeshRenderer>().enabled = false; //needs to be the player
             }
             else
             {
-                GetComponent<MeshRenderer>().enabled = true;
+                player.GetComponent<MeshRenderer>().enabled = true;
             }
             yield return new WaitForSeconds(.1f);
         }
-        GetComponent<MeshRenderer>().enabled = true;
+        player.GetComponent<MeshRenderer>().enabled = true;
     }
 }

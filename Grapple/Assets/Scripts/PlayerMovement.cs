@@ -8,6 +8,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed;
+    //public float groundSpeed = 7;
+    //public float skySpeed = 14;
     public Transform playerOrientation;
     Vector3 moveDirection;
     public Rigidbody rb;
@@ -26,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
     //jumping
     public float jumpForce;
     public float jumpCooldown;
-    public float airMultiplier;
+    public float airMultiplier; //0.4
     bool readyToJump = true; //setting it to true fixes the issue of, well, not working
     public int jumpCount;
 
@@ -65,7 +67,17 @@ public class PlayerMovement : MonoBehaviour
             rb.drag = groundDrag;
         else
             rb.drag = 0;
-
+       //airmultiplier in MovePlayer does the same thing
+       /*
+        if (!grounded)
+        {
+            moveSpeed = skySpeed;
+        }
+        else
+        {
+            moveSpeed = groundSpeed;
+        }
+       */
         //remove this to move during shoot
         if (freeze)
         {
