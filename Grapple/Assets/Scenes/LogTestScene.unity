@@ -123,18 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &284433504 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8894764447133125385, guid: ffd2107be49fa254297ec4cdfa4780a3,
-    type: 3}
-  m_PrefabInstance: {fileID: 3191990032882141643}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61f36599f48f4be4bb76709fadf5dd25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -314,7 +302,7 @@ GameObject:
   - component: {fileID: 857994891}
   - component: {fileID: 857994890}
   - component: {fileID: 857994889}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Ground (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -524,7 +512,7 @@ GameObject:
   - component: {fileID: 1060804565}
   - component: {fileID: 1060804564}
   - component: {fileID: 1060804563}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Wall (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -629,7 +617,7 @@ GameObject:
   - component: {fileID: 1104523252}
   - component: {fileID: 1104523251}
   - component: {fileID: 1104523250}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -734,7 +722,7 @@ GameObject:
   - component: {fileID: 1186220611}
   - component: {fileID: 1186220610}
   - component: {fileID: 1186220609}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Wall
   m_TagString: Scenery
   m_Icon: {fileID: 0}
@@ -944,7 +932,7 @@ GameObject:
   - component: {fileID: 1909491291}
   - component: {fileID: 1909491290}
   - component: {fileID: 1909491289}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Wall (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1049,7 +1037,7 @@ GameObject:
   - component: {fileID: 2108872196}
   - component: {fileID: 2108872195}
   - component: {fileID: 2108872194}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Wall (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1142,7 +1130,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &3191990032882141643
+--- !u!1001 &134653219505245174
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1150,85 +1138,134 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 37395609636914065, guid: ffd2107be49fa254297ec4cdfa4780a3,
+    - target: {fileID: 1311328540462438743, guid: f7ba1ab05f706ee48b4778c2d6b98bec,
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 37395609636914065, guid: ffd2107be49fa254297ec4cdfa4780a3,
+    - target: {fileID: 1311328540462438743, guid: f7ba1ab05f706ee48b4778c2d6b98bec,
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 37395609636914065, guid: ffd2107be49fa254297ec4cdfa4780a3,
+    - target: {fileID: 1311328540462438743, guid: f7ba1ab05f706ee48b4778c2d6b98bec,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 37395609636914065, guid: ffd2107be49fa254297ec4cdfa4780a3,
+    - target: {fileID: 1311328540462438743, guid: f7ba1ab05f706ee48b4778c2d6b98bec,
         type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 37395609636914065, guid: ffd2107be49fa254297ec4cdfa4780a3,
+    - target: {fileID: 1311328540462438743, guid: f7ba1ab05f706ee48b4778c2d6b98bec,
         type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 37395609636914065, guid: ffd2107be49fa254297ec4cdfa4780a3,
+    - target: {fileID: 1311328540462438743, guid: f7ba1ab05f706ee48b4778c2d6b98bec,
         type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 37395609636914065, guid: ffd2107be49fa254297ec4cdfa4780a3,
+    - target: {fileID: 1311328540462438743, guid: f7ba1ab05f706ee48b4778c2d6b98bec,
         type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 37395609636914065, guid: ffd2107be49fa254297ec4cdfa4780a3,
+    - target: {fileID: 1311328540462438743, guid: f7ba1ab05f706ee48b4778c2d6b98bec,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 37395609636914065, guid: ffd2107be49fa254297ec4cdfa4780a3,
+    - target: {fileID: 1311328540462438743, guid: f7ba1ab05f706ee48b4778c2d6b98bec,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 37395609636914065, guid: ffd2107be49fa254297ec4cdfa4780a3,
+    - target: {fileID: 1311328540462438743, guid: f7ba1ab05f706ee48b4778c2d6b98bec,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5200953456127724726, guid: ffd2107be49fa254297ec4cdfa4780a3,
+    - target: {fileID: 8808208705663106388, guid: f7ba1ab05f706ee48b4778c2d6b98bec,
         type: 3}
       propertyPath: m_Name
-      value: PlayerContainer
+      value: PlayerFinal
       objectReference: {fileID: 0}
-    - target: {fileID: 8434411740600045530, guid: ffd2107be49fa254297ec4cdfa4780a3,
-        type: 3}
-      propertyPath: camscript
-      value: 
-      objectReference: {fileID: 284433504}
-    - target: {fileID: 8434411740600045530, guid: ffd2107be49fa254297ec4cdfa4780a3,
-        type: 3}
-      propertyPath: grappleFOV
-      value: 100
-      objectReference: {fileID: 0}
-<<<<<<<< HEAD:Grapple/Assets/Scenes/LogTestScene.unity
-    - target: {fileID: 9215233452192060854, guid: ffd2107be49fa254297ec4cdfa4780a3,
-        type: 3}
-      propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
-========
->>>>>>>> origin/Logan:Grapple/Assets/Scenes/TestScene.unity
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ffd2107be49fa254297ec4cdfa4780a3, type: 3}
-<<<<<<<< HEAD:Grapple/Assets/Scenes/LogTestScene.unity
+  m_SourcePrefab: {fileID: 100100000, guid: f7ba1ab05f706ee48b4778c2d6b98bec, type: 3}
+--- !u!1001 &1939224031355272910
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1500059254145884814, guid: 956ca52754d392f41839bb6c72433e01,
+        type: 3}
+      propertyPath: m_Name
+      value: HealthPickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 9211981097200139194, guid: 956ca52754d392f41839bb6c72433e01,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9211981097200139194, guid: 956ca52754d392f41839bb6c72433e01,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9211981097200139194, guid: 956ca52754d392f41839bb6c72433e01,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9211981097200139194, guid: 956ca52754d392f41839bb6c72433e01,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9211981097200139194, guid: 956ca52754d392f41839bb6c72433e01,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9211981097200139194, guid: 956ca52754d392f41839bb6c72433e01,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9211981097200139194, guid: 956ca52754d392f41839bb6c72433e01,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9211981097200139194, guid: 956ca52754d392f41839bb6c72433e01,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9211981097200139194, guid: 956ca52754d392f41839bb6c72433e01,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9211981097200139194, guid: 956ca52754d392f41839bb6c72433e01,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 956ca52754d392f41839bb6c72433e01, type: 3}
 --- !u!1001 &4734368170565641939
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1297,15 +1334,13 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38b1f0d486bff734e9cbf07d5b02b065, type: 3}
-========
->>>>>>>> origin/Logan:Grapple/Assets/Scenes/TestScene.unity
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 410087041}
   - {fileID: 832575519}
-  - {fileID: 3191990032882141643}
+  - {fileID: 134653219505245174}
   - {fileID: 1104523253}
   - {fileID: 857994892}
   - {fileID: 1186220612}
@@ -1314,7 +1349,5 @@ SceneRoots:
   - {fileID: 1060804566}
   - {fileID: 1909491292}
   - {fileID: 923315137}
-<<<<<<<< HEAD:Grapple/Assets/Scenes/LogTestScene.unity
   - {fileID: 4734368170565641939}
-========
->>>>>>>> origin/Logan:Grapple/Assets/Scenes/TestScene.unity
+  - {fileID: 1939224031355272910}

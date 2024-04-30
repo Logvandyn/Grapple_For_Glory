@@ -42,7 +42,6 @@ public class PlayerMovement : MonoBehaviour
     //swing movement
     public float swingSpeed;
     public bool swinging;
-    internal static bool enable;
 
     // Start is called before the first frame update
     void Start()
@@ -133,6 +132,7 @@ public class PlayerMovement : MonoBehaviour
             GetComponent<GrappleSwing>().lr.enabled = false;
             GetComponent<GrappleSwing>().StopSwing();
         }
+        
     }
 
     private void MovePlayer()
@@ -148,8 +148,8 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
             //rb.mass = 1;
-            GetComponent<Grapple>().grappleFall = false;
-            jumpCount = 0;
+            //GetComponent<Grapple>().grappleFall = false;
+            //jumpCount = 0;
         }
         else if (!grounded)
         {

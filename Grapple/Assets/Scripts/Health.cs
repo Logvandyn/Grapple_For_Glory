@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+using UnityEngine.SceneManagement;
+
 public class Health : MonoBehaviour
 {
     public int maxhealth = 3;
@@ -16,7 +18,6 @@ public class Health : MonoBehaviour
     public TextMeshProUGUI livescounter;
     public TextMeshProUGUI lose;
     public TextMeshProUGUI win;
-    public Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +38,11 @@ public class Health : MonoBehaviour
         }
     }
 
+    public void Heal()
+    {
+        currenthealth = maxhealth; //restore health to full
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Hazard")
@@ -51,6 +57,13 @@ public class Health : MonoBehaviour
         {
             win.text = "YOU WIN!";
             GetComponent<PlayerMovement>().enabled = false;
+            //GetComponent<SceneSwitch>().switchScene(1);
+            SceneManager.LoadScene(1);
+        }
+        //heal
+        if (other.gameObject.tag == "Health") //other, not collision
+        {
+            Heal();
         }
     }
  
@@ -70,7 +83,6 @@ public class Health : MonoBehaviour
         {
             lose.text = "GAME OVER";
             GetComponent<PlayerMovement>().enabled = false;
-
         }
 
     }

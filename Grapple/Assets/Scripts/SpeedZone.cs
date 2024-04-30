@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SpeedZone : MonoBehaviour
 {
-    public int speedboost;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +19,7 @@ public class SpeedZone : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<PlayerMovement>().moveSpeed = speedboost;
+            other.gameObject.GetComponent<PlayerMovement>().moveSpeed = 14;
         }
     }
     private void OnTriggerExit(Collider other)
