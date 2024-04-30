@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Grapple/Assets/Prefabs/ProjSpawner.prefab.meta
 guid: 38b1f0d486bff734e9cbf07d5b02b065
+========
+guid: 60178f25cac53ee4ca064e8b876f4ab1
+>>>>>>>> Ryan:Grapple/Assets/Prefabs/MovingPlatforms.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 
