@@ -36,6 +36,8 @@ public class Health : MonoBehaviour
     public void TakeDamage(int amount)
     {
         currenthealth -= amount;
+        GetComponent<GrappleSwing>().lr.enabled = false;
+        GetComponent<GrappleSwing>().StopSwing();
 
         if (currenthealth <= 0)
         {
@@ -64,6 +66,7 @@ public class Health : MonoBehaviour
         if (other.gameObject.tag == "Hazard")
         {
             TakeDamage(1);
+
         }
         if (other.gameObject.tag == "Lava")
         {
@@ -102,6 +105,13 @@ public class Health : MonoBehaviour
         {
             startPosition = this.gameObject.transform.position;
         }
+
+        //time pickup
+        if (other.gameObject.tag == "Clock") 
+        {
+            timeLeft += 30f;
+        }
+
     }
  
    
