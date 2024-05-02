@@ -141,8 +141,8 @@ public class PlayerMovement : MonoBehaviour
         }
         if (collision.gameObject.tag == "Hazard")
         {
-            GetComponent<GrappleSwing>().lr.enabled = false;
-            GetComponent<GrappleSwing>().StopSwing();
+            //GetComponent<GrappleSwing>().lr.enabled = false;
+            //GetComponent<GrappleSwing>().StopSwing();
         }
         
     }
