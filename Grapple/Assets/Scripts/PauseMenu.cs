@@ -9,7 +9,12 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
+    public TextMeshProUGUI Paused;
 
+    private void Start()
+    {
+        
+    }
     // Update is called once per frame
     void Update()
     {
@@ -38,6 +43,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
+        Paused.text = "Paused";
     }
 
     public void LoadMenu()
