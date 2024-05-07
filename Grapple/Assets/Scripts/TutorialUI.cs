@@ -15,7 +15,6 @@ public class TutorialUI : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             StartUI.enabled = true;
-            Debug.Log("bruh");
         }
     }
     public void OnTriggerExit(Collider other)

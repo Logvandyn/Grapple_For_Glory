@@ -3359,15 +3359,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2110210818483019497, guid: b744b0f7dafe3fc409596b8633bac8cb,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3027583006702103979, guid: b744b0f7dafe3fc409596b8633bac8cb,
         type: 3}
       propertyPath: m_Name
       value: Win Platform (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3027583006702103979, guid: b744b0f7dafe3fc409596b8633bac8cb,
+        type: 3}
+      propertyPath: m_TagString
+      value: Portal1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3027583006702103979, guid: b744b0f7dafe3fc409596b8633bac8cb,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1446990177}
   m_SourcePrefab: {fileID: 100100000, guid: b744b0f7dafe3fc409596b8633bac8cb, type: 3}
 --- !u!1 &517951178
 GameObject:
@@ -8209,6 +8223,24 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &1446990172 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3027583006702103979, guid: b744b0f7dafe3fc409596b8633bac8cb,
+    type: 3}
+  m_PrefabInstance: {fileID: 449669039}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1446990177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1446990172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 428b7d172046cf5409c3704905445696, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1456416346
 GameObject:
   m_ObjectHideFlags: 0

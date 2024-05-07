@@ -15,6 +15,7 @@ TagManager:
   - Spawnpoint
   - CheckPoint
   - Clock
+  - Portal1
   layers:
   - Default
   - TransparentFX
