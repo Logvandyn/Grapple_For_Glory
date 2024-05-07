@@ -16,7 +16,7 @@ public class Health : MonoBehaviour
     public Vector3 startPosition; //for spawning / respawning
     public TextMeshProUGUI healthcounter;
     public TextMeshProUGUI livescounter;
-    public TextMeshProUGUI lose;
+    public GameObject LoseContainer;
     public TextMeshProUGUI win;
     public Vector3 spawnpos = new Vector3(3, 10, 262);
     public Timer timer;
@@ -33,6 +33,7 @@ public class Health : MonoBehaviour
         currenthealth = maxhealth;
         currentlives = maxlives;
         SetCountText();
+        LoseContainer.SetActive(false);
     }
 
     public void TakeDamage(int amount)
@@ -185,9 +186,10 @@ public class Health : MonoBehaviour
 
     public void GameOver()
     {
-        lose.text = "GAME OVER";
+        LoseContainer.SetActive(true);
         GetComponent<PlayerMovement>().enabled = false;
-
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         failure = true;
         
         //timer.timerRunning = false;
