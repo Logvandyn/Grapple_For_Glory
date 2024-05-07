@@ -159,14 +159,14 @@ public class PlayerMovement : MonoBehaviour
         //add force only when grounded
         if (grounded)
         {
-            rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+            rb.AddForce(moveDirection.normalized * moveSpeed * 20f, ForceMode.Force);
             //rb.mass = 1;
             //GetComponent<Grapple>().grappleFall = false;
             //jumpCount = 0;
         }
         else if (!grounded)
         {
-            rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
+            rb.AddForce(moveDirection.normalized * moveSpeed * 20f * airMultiplier, ForceMode.Force);
             //rb.mass = 5;
         }
     }
