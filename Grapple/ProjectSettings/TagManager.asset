@@ -4,17 +4,22 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Win
   - Hazard
-  - Lava
   - Scenery
-  - Level2
+  - Health
+  - Win
+  - Lava
   - Start
+  - Portal
+  - Kill
+  - Spawnpoint
+  - CheckPoint
+  - Clock
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Grapple
+  - GrappleMe
   - Water
   - UI
   - 

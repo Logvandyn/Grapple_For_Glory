@@ -8,10 +8,12 @@ using UnityEngine;
 public class ProjectileHazard : MonoBehaviour
 {
     public int speed;
+    public Rigidbody rb;
     // Update is called once per frame
     void Update()
     {
-        transform.position += Vector3.right * Time.deltaTime * speed;
+        //transform.position += Vector3.forward * Time.deltaTime * speed;
+        rb.AddForce(rb.transform.forward * Time.deltaTime * (speed * 10));
     }
 
     private void OnTriggerEnter(Collider other)
