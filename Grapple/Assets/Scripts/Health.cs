@@ -81,6 +81,7 @@ public class Health : MonoBehaviour
             win.text = "YOU WIN!"; //only enable this on last level cause it shows up the whole time
             GetComponent<PlayerMovement>().enabled = false;
             timer.timerRunning = false;
+            Time.timeScale = 0f;
             //GetComponent<SceneSwitch>().switchScene(1);
             //SceneManager.LoadScene(1);
         }
@@ -178,6 +179,8 @@ public class Health : MonoBehaviour
     {
         lose.text = "GAME OVER";
         GetComponent<PlayerMovement>().enabled = false;
+        Time.timeScale = 0f;
+
     }
 
     /*
