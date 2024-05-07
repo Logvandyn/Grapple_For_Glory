@@ -12233,6 +12233,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5213589096799842892, guid: 666619fc58763074ca2040ed92c90b00,
         type: 3}
+      propertyPath: moveSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5213589096799842892, guid: 666619fc58763074ca2040ed92c90b00,
+        type: 3}
+      propertyPath: swingSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5213589096799842892, guid: 666619fc58763074ca2040ed92c90b00,
+        type: 3}
       propertyPath: airMultiplier
       value: 0.4
       objectReference: {fileID: 0}
