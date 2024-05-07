@@ -12,18 +12,18 @@ public class Timer : MonoBehaviour
 
 
     void Update()
-    {
+    {   
+        
         if (timerRunning == true)
         {
             timeLeft -= Time.deltaTime;
         }
-        
-           
-        /*startText.text = (timeLeft).ToString("0");
-        if (timeLeft < 0)
+        else
         {
-            //insert death screen
-        }*/
+            timeLeft = Time.deltaTime;
+        }
+           
+        
     }
    
 } 

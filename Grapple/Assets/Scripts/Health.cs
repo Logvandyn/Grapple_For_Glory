@@ -24,6 +24,8 @@ public class Health : MonoBehaviour
     public float timeLeft = 105.0f;
     public TextMeshProUGUI timeText; // used for showing countdown from 3, 2, 1 
 
+    public bool victory = false;
+    public bool failure = false;
 
     // Start is called before the first frame update
     void Start()
@@ -80,8 +82,11 @@ public class Health : MonoBehaviour
         {
             win.text = "YOU WIN!"; //only enable this on last level cause it shows up the whole time
             GetComponent<PlayerMovement>().enabled = false;
-            timer.timerRunning = false;
-            Time.timeScale = 0f;
+
+            //timer.timerRunning = false;
+            victory = true;
+            //timeLeft += 0;
+            //Time.timeScale = 0f;
             //GetComponent<SceneSwitch>().switchScene(1);
             //SceneManager.LoadScene(1);
         }
@@ -129,7 +134,7 @@ public class Health : MonoBehaviour
         //does it have to be fixed update?
         //A: No it doesnt
 
-        if (timeLeft >= 0)
+        if (timeLeft >= 0 && victory == false && failure == false) //if you havent won and you havent lost, count down
         {
             timeLeft -= Time.deltaTime;
             //timeLeft -= 1;
@@ -142,6 +147,9 @@ public class Health : MonoBehaviour
             GameOver();
             timeText.text = "TIME LEFT: NONE, YOU DIDN'T MAKE IT";
         }
+
+        //win
+        //time left = time left, stop counting down
     }
 
     /*
@@ -179,7 +187,11 @@ public class Health : MonoBehaviour
     {
         lose.text = "GAME OVER";
         GetComponent<PlayerMovement>().enabled = false;
-        Time.timeScale = 0f;
+
+        failure = true;
+        
+        //timer.timerRunning = false;
+        //Time.timeScale = 0f;
 
     }
 
