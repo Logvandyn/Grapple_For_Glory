@@ -14,7 +14,6 @@ TagManager:
   - Kill
   - Spawnpoint
   - CheckPoint
-  - Clock
   layers:
   - Default
   - TransparentFX

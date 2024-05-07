@@ -19,7 +19,7 @@ public class Health : MonoBehaviour
     public TextMeshProUGUI lose;
     public TextMeshProUGUI win;
     public Vector3 spawnpos = new Vector3(3, 10, 262);
-
+    public Timer timer;
     //timer
     public float timeLeft = 105.0f;
     public TextMeshProUGUI timeText; // used for showing countdown from 3, 2, 1 
@@ -80,6 +80,7 @@ public class Health : MonoBehaviour
         {
             win.text = "YOU WIN!"; //only enable this on last level cause it shows up the whole time
             GetComponent<PlayerMovement>().enabled = false;
+            timer.timerRunning = false;
             //GetComponent<SceneSwitch>().switchScene(1);
             //SceneManager.LoadScene(1);
         }
@@ -91,7 +92,7 @@ public class Health : MonoBehaviour
 
             //fix start pos from checkpoints
 
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(2);
             //SpawnReset();
         }
         //heal
