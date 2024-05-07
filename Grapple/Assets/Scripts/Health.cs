@@ -91,7 +91,7 @@ public class Health : MonoBehaviour
 
             //fix start pos from checkpoints
 
-            SceneManager.LoadScene(3);
+            SceneManager.LoadScene(1);
             //SpawnReset();
         }
         //heal
