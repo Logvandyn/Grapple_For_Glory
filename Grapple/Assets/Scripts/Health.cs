@@ -20,9 +20,12 @@ public class Health : MonoBehaviour
     public TextMeshProUGUI win;
     public Vector3 spawnpos = new Vector3(3, 10, 262);
 
+
     //timer
     public float timeLeft = 105.0f;
     public TextMeshProUGUI timeText; // used for showing countdown from 3, 2, 1 
+    public bool victory = false;
+    public bool failure = false;
 
 
     // Start is called before the first frame update
@@ -79,6 +82,7 @@ public class Health : MonoBehaviour
         if (other.gameObject.tag == "Win")
         {
             win.text = "YOU WIN!"; //only enable this on last level cause it shows up the whole time
+            victory = true;
             GetComponent<PlayerMovement>().enabled = false;
             //GetComponent<SceneSwitch>().switchScene(1);
             //SceneManager.LoadScene(1);
@@ -126,8 +130,7 @@ public class Health : MonoBehaviour
 
         //does it have to be fixed update?
         //A: No it doesnt
-
-        if (timeLeft >= 0)
+        if (timeLeft >= 0 && victory == false && failure == false) //if you havent won and you havent lost, count down
         {
             timeLeft -= Time.deltaTime;
             //timeLeft -= 1;
@@ -177,6 +180,7 @@ public class Health : MonoBehaviour
     {
         lose.text = "GAME OVER";
         GetComponent<PlayerMovement>().enabled = false;
+        failure = true;
     }
 
     /*
