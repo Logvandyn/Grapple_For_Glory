@@ -15,15 +15,27 @@ public class CameraController : MonoBehaviour
     public Transform playerOrientation;
     float camXrot;
     float camYrot;
+    public GameObject menu;
 
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked; //ensure we can't click things or see the cursor
         Cursor.visible = false;
+
     }
 
     void Update()
     {
+        if (menu.gameObject.GetComponent<PauseMenu>().MenuUp == true)
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+        if (menu.gameObject.GetComponent<PauseMenu>().MenuUp == false)
+        {
+            Cursor.lockState = CursorLockMode.Locked; //ensure we can't click things or see the cursor
+            Cursor.visible = false;
+        }
         //get mouse input
         float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * Xsensitivity;
         float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * Ysensitivity;
